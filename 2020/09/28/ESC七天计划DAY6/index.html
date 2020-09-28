@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"www.sccan.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="ECS 服务器的购买环境准备：ECS 容纳网站的容器阿里云特色  安全组 ： 服务器内部的防火墙添加一个安全组：用于安装linux的登录">
+  <meta name="description" content="放行22端口 以便SSH通行 打开系统自带的终端工具。  Windows：CMD或Powershell。MAC：Terminal。  在终端中输入连接命令ssh [username]@[ipaddress]。您需要将其中的username和ipaddress替换为第1小节中创建的ECS服务器的登录名和公网地址。例如：ssh root@123.123.123.123  输入yes。  同意继续后将会">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESC七天计划DAY2">
-<meta property="og:url" content="http://www.sccan.top/2020/09/24/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY2/index.html">
+<meta property="og:title" content="ESC七天计划DAY6">
+<meta property="og:url" content="http://www.sccan.top/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY6/index.html">
 <meta property="og:site_name" content="kenaki">
-<meta property="og:description" content="ECS 服务器的购买环境准备：ECS 容纳网站的容器阿里云特色  安全组 ： 服务器内部的防火墙添加一个安全组：用于安装linux的登录">
+<meta property="og:description" content="放行22端口 以便SSH通行 打开系统自带的终端工具。  Windows：CMD或Powershell。MAC：Terminal。  在终端中输入连接命令ssh [username]@[ipaddress]。您需要将其中的username和ipaddress替换为第1小节中创建的ECS服务器的登录名和公网地址。例如：ssh root@123.123.123.123  输入yes。  同意继续后将会">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-24T13:03:47.729Z">
-<meta property="article:modified_time" content="2020-09-24T13:06:18.882Z">
+<meta property="article:published_time" content="2020-09-28T14:04:44.220Z">
+<meta property="article:modified_time" content="2020-09-28T14:10:08.704Z">
 <meta property="article:author" content="慕寒">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.sccan.top/2020/09/24/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY2/">
+<link rel="canonical" href="http://www.sccan.top/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY6/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>ESC七天计划DAY2 | kenaki</title>
+  <title>ESC七天计划DAY6 | kenaki</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.sccan.top/2020/09/24/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY2/">
+    <link itemprop="mainEntityOfPage" href="http://www.sccan.top/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/headico.jpg">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ESC七天计划DAY2
+          ESC七天计划DAY6
         </h1>
 
         <div class="post-meta">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-09-24 21:03:47 / 修改时间：21:06:18" itemprop="dateCreated datePublished" datetime="2020-09-24T21:03:47+08:00">2020-09-24</time>
+              <time title="创建时间：2020-09-28 22:04:44 / 修改时间：22:10:08" itemprop="dateCreated datePublished" datetime="2020-09-28T22:04:44+08:00">2020-09-28</time>
             </span>
 
           
@@ -195,7 +195,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="ECS-服务器的购买"><a href="#ECS-服务器的购买" class="headerlink" title="ECS 服务器的购买"></a>ECS 服务器的购买</h1><p><em>环境准备：ECS 容纳网站的容器</em><br><em>阿里云特色  安全组 ： 服务器内部的防火墙</em><br><em>添加一个安全组：用于安装linux的登录</em></p>
+        <h1 id="放行22端口-以便SSH通行"><a href="#放行22端口-以便SSH通行" class="headerlink" title="放行22端口 以便SSH通行"></a>放行22端口 以便SSH通行</h1><ul>
+<li>打开系统自带的终端工具。</li>
+</ul>
+<p>Windows：CMD或Powershell。<br>MAC：Terminal。</p>
+<ul>
+<li><p>在终端中输入连接命令ssh [username]@[ipaddress]。您需要将其中的username和ipaddress替换为第1小节中创建的ECS服务器的登录名和公网地址。例如：ssh <a href="mailto:root@123.123.123.123">root@123.123.123.123</a></p>
+</li>
+<li><p>输入yes。</p>
+</li>
+<li><p>同意继续后将会提示输入登录密码。 密码为已创建的云服务的ECS的登录密码。</p>
+</li>
+</ul>
+<p>登录成功后会显示如下信息。</p>
+<h1 id="安装Apache服务"><a href="#安装Apache服务" class="headerlink" title="安装Apache服务"></a>安装Apache服务</h1><p>Apache是世界使用排名第一的Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。</p>
+<ul>
+<li>执行如下命令，安装Apache服务及其扩展包。</li>
+</ul>
+<p>yum -y install httpd httpd-manual mod_ssl mod_perl mod_auth_mysql<br>返回类似如下图结果则表示安装成功。</p>
+<ul>
+<li>执行如下命令，启动Apache服务。</li>
+</ul>
+<p>systemctl start httpd.service</p>
+<ul>
+<li>测试Apache服务是否安装并启动成功。</li>
+</ul>
+<p>Apache默认监听80端口，所以只需在浏览器访问ECS分配的IP地址http://&lt;ECS公网IP&gt;，如下图：</p>
+<h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><ul>
+<li>执行以下命令，下载并安装MySQL官方的Yum Repository。</li>
+</ul>
+<p>wget <a href="http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm" target="_blank" rel="noopener">http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm</a><br>yum -y install mysql57-community-release-el7-10.noarch.rpm<br>yum -y install mysql-community-server</p>
+<ul>
+<li>执行以下命令，启动 MySQL 数据库。</li>
+</ul>
+<p>systemctl start mysqld.service</p>
+<ul>
+<li>执行以下命令，查看MySQL初始密码。</li>
+</ul>
+<p>grep “password” /var/log/mysqld.log</p>
+<ul>
+<li>执行以下命令，登录数据库。</li>
+</ul>
+<p>mysql -uroot -p</p>
+<ul>
+<li>执行以下命令，修改MySQL默认密码。</li>
+</ul>
+<p>set global validate_password_policy=0;  #修改密码安全策略为低（只校验密码长度，至少8位）。<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘12345678’;</p>
+<ul>
+<li>执行以下命令，授予root用户远程管理权限。</li>
+</ul>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’ IDENTIFIED BY ‘12345678’;</p>
+<ul>
+<li>输入exit退出数据库。</li>
+</ul>
 
     </div>
 
@@ -211,7 +263,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.sccan.top/2020/09/24/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY2/" title="ESC七天计划DAY2">http://www.sccan.top/2020/09/24/ESC七天计划DAY2/</a>
+    <a href="http://www.sccan.top/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY6/" title="ESC七天计划DAY6">http://www.sccan.top/2020/09/28/ESC七天计划DAY6/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -228,13 +280,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/09/23/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY1/" rel="prev" title="ESC七天计划DAY1">
-      <i class="fa fa-chevron-left"></i> ESC七天计划DAY1
+    <a href="/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY5/" rel="prev" title="ESC七天计划DAY5">
+      <i class="fa fa-chevron-left"></i> ESC七天计划DAY5
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/25/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY3/" rel="next" title="ESC七天计划DAY3">
-      ESC七天计划DAY3 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -293,7 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ECS-服务器的购买"><span class="nav-number">1.</span> <span class="nav-text">ECS 服务器的购买</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#放行22端口-以便SSH通行"><span class="nav-number">1.</span> <span class="nav-text">放行22端口 以便SSH通行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Apache服务"><span class="nav-number">2.</span> <span class="nav-text">安装Apache服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装MySQL"><span class="nav-number">3.</span> <span class="nav-text">安装MySQL</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

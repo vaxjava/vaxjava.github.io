@@ -145,6 +145,175 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.sccan.top/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headico.jpg">
+      <meta itemprop="name" content="慕寒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kenaki">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY6/" class="post-title-link" itemprop="url">ESC七天计划DAY6</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-28 22:04:44 / 修改时间：22:10:08" itemprop="dateCreated datePublished" datetime="2020-09-28T22:04:44+08:00">2020-09-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="放行22端口-以便SSH通行"><a href="#放行22端口-以便SSH通行" class="headerlink" title="放行22端口 以便SSH通行"></a>放行22端口 以便SSH通行</h1><ul>
+<li>打开系统自带的终端工具。</li>
+</ul>
+<p>Windows：CMD或Powershell。<br>MAC：Terminal。</p>
+<ul>
+<li><p>在终端中输入连接命令ssh [username]@[ipaddress]。您需要将其中的username和ipaddress替换为第1小节中创建的ECS服务器的登录名和公网地址。例如：ssh <a href="mailto:root@123.123.123.123">root@123.123.123.123</a></p>
+</li>
+<li><p>输入yes。</p>
+</li>
+<li><p>同意继续后将会提示输入登录密码。 密码为已创建的云服务的ECS的登录密码。</p>
+</li>
+</ul>
+<p>登录成功后会显示如下信息。</p>
+<h1 id="安装Apache服务"><a href="#安装Apache服务" class="headerlink" title="安装Apache服务"></a>安装Apache服务</h1><p>Apache是世界使用排名第一的Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。</p>
+<ul>
+<li>执行如下命令，安装Apache服务及其扩展包。</li>
+</ul>
+<p>yum -y install httpd httpd-manual mod_ssl mod_perl mod_auth_mysql<br>返回类似如下图结果则表示安装成功。</p>
+<ul>
+<li>执行如下命令，启动Apache服务。</li>
+</ul>
+<p>systemctl start httpd.service</p>
+<ul>
+<li>测试Apache服务是否安装并启动成功。</li>
+</ul>
+<p>Apache默认监听80端口，所以只需在浏览器访问ECS分配的IP地址http://&lt;ECS公网IP&gt;，如下图：</p>
+<h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><ul>
+<li>执行以下命令，下载并安装MySQL官方的Yum Repository。</li>
+</ul>
+<p>wget <a href="http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm" target="_blank" rel="noopener">http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm</a><br>yum -y install mysql57-community-release-el7-10.noarch.rpm<br>yum -y install mysql-community-server</p>
+<ul>
+<li>执行以下命令，启动 MySQL 数据库。</li>
+</ul>
+<p>systemctl start mysqld.service</p>
+<ul>
+<li>执行以下命令，查看MySQL初始密码。</li>
+</ul>
+<p>grep “password” /var/log/mysqld.log</p>
+<ul>
+<li>执行以下命令，登录数据库。</li>
+</ul>
+<p>mysql -uroot -p</p>
+<ul>
+<li>执行以下命令，修改MySQL默认密码。</li>
+</ul>
+<p>set global validate_password_policy=0;  #修改密码安全策略为低（只校验密码长度，至少8位）。<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘12345678’;</p>
+<ul>
+<li>执行以下命令，授予root用户远程管理权限。</li>
+</ul>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’ IDENTIFIED BY ‘12345678’;</p>
+<ul>
+<li>输入exit退出数据库。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.sccan.top/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headico.jpg">
+      <meta itemprop="name" content="慕寒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kenaki">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/28/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY5/" class="post-title-link" itemprop="url">ESC七天计划DAY5</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-28 21:47:58 / 修改时间：21:48:38" itemprop="dateCreated datePublished" datetime="2020-09-28T21:47:58+08:00">2020-09-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="通过宝塔网站安装到linux-记得安全组放行8888端口"><a href="#通过宝塔网站安装到linux-记得安全组放行8888端口" class="headerlink" title="通过宝塔网站安装到linux 记得安全组放行8888端口"></a>通过宝塔网站安装到linux 记得安全组放行8888端口</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.sccan.top/2020/09/26/ESC%E4%B8%83%E5%A4%A9%E8%AE%A1%E5%88%92DAY4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -515,7 +684,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
